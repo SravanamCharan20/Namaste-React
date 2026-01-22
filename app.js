@@ -9,6 +9,17 @@ const header = React.createElement(
   { id: "header", charan: "Meghana" },
   "this is from H1 tag from React"
 );
+
+const div = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h1", {}, "this is from nested h1 tag")
+  )
+);
+console.log(div);
 console.log(header); // return object contains this 👇
 // {
 // props:
@@ -19,5 +30,5 @@ console.log(header); // return object contains this 👇
 // }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(header);
+root.render(div);
 // render takes that object and creates the tag ans inject the children info into the tag.
