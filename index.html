@@ -8,12 +8,24 @@
   <body>
     <div id="root"></div>
 
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script>
-      const header = document.createElement("h1");
-      header.innerHTML = "Hello from JS";
+      const header = React.createElement(
+        "h1",
+        {},
+        "this is from H1 tag from React"
+      );
       console.log(header);
-      const root = document.getElementById("root");
-      root.appendChild(header);
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(header);
     </script>
+    <!-- <script src="./app.js"></script> -->
   </body>
 </html>
