@@ -1,16 +1,107 @@
-# React + Vite
+## React Class Component Lifecycle (with API Example)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Lifecycle Execution Order
 
-Currently, two official plugins are available:
+1. constructor()
+2. render() → renders UI with initial / dummy (shimmer) state
+3. componentDidMount()
+4. setState() inside componentDidMount → triggers re-render
+5. DOM updates with real API data
+6. componentDidUpdate() (runs only on subsequent updates)
+7. componentWillUnmount() (runs when component is removed or When we moved into another component)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### Detailed Explanation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1️⃣ constructor()
+- Initializes state
+- Used to set dummy / placeholder data
+- Runs only once
 
-## Expanding the ESLint configuration
+Example:
+userInfo = {
+  username: "default user",
+  blog: "",
+}
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 2️⃣ render()
+- Executes immediately after constructor
+- Renders UI using initial state
+- Shows loading / shimmer / dummy content
+
+⚠️ render() must be pure (no side-effects)
+
+---
+
+### 3️⃣ componentDidMount()
+- Runs once after the first render
+- Best place for API calls
+- Component is now mounted in the DOM
+
+Example use cases:
+- Fetch data
+- Start timers
+- Add event listeners
+
+---
+
+### 4️⃣ setState() inside componentDidMount
+- Triggers re-render
+- React updates the DOM with real API data
+- UI replaces dummy content automatically
+
+---
+
+### 5️⃣ componentDidUpdate()
+- Runs AFTER the DOM is updated
+- Triggered only when props or state change
+- Used for side-effects (NOT rendering)
+
+⚠️ componentDidUpdate does NOT update the DOM directly (as it sets the State Variable that will enables the re-render)
+
+---
+
+### 6️⃣ componentWillUnmount()
+- Runs when component is removed from the DOM
+- Used for cleanup logic
+
+Why cleanup is required?
+- Timers and subscriptions persist in browser memory
+- Without cleanup, they stack on re-entry
+- Causes memory leaks and performance issues
+
+Things to clean up:
+- setInterval
+- setTimeout
+- Event listeners
+- Subscriptions
+
+---
+
+### Hooks Equivalent (useEffect)
+
+useEffect(() => {
+  // componentDidMount logic
+  const id = setInterval(() => {
+    console.log("running");
+  }, 1000);
+
+  // componentWillUnmount cleanup
+  return () => {
+    clearInterval(id);
+  };
+}, []);
+
+return cleanup function === componentWillUnmount
+
+---
+
+### Interview One-Liners
+
+- API calls belong in componentDidMount
+- componentDidUpdate runs AFTER DOM update
+- Cleanup prevents memory leaks
+- useEffect cleanup = componentWillUnmount
