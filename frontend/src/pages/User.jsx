@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const User = () => {
+const User = (props) => {
+  const [count, setCount] = useState(0);
+  const { name, age, sex } = props;
+
   return (
-    <div>
-      <h1>This is charan</h1>
-      <h1>age : 20</h1>
-      <h1>sex : male</h1>
+    <div className="m-5 border-b">
+      <div>
+        <h1>This is from <span className="text-red-600 text-lg">Functional</span> Based Component</h1>
+      </div>
+      <h1>Counter : {count}</h1>
+      <h1>This is {name}</h1>
+      <h1>age : {age}</h1>
+      <h1>sex : {sex}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default User
+export default User;
