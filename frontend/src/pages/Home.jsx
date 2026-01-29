@@ -25,7 +25,7 @@ const Home = () => {
     <Shimmer />
   ) : (
     <div>
-      <h1>restaurants</h1>
+      <h1 className="text-center text-3xl m-5">Restaurants</h1>
       <div className="restaurant-list">
         {data.map((res) => (
           <RestaurantCard key={res.info.id} resData={res.info} />
