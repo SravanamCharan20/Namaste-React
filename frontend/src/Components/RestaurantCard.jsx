@@ -1,22 +1,25 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-const RestaurantCard = ({resData}) => {
-  const { name, cuisines, avgRating ,sla} = resData;
+const RestaurantCard = ({ resData }) => {
+  const { id, name, cuisines, avgRating, sla } = resData;
+
   return (
-    <div>
-        
-      {/* Resturant card Container */}
-      <div className="border text-center p-5 m-2 w-[320px] mx-auto">
-        
-        <div className="text-left">
-          <h1 className="text-red-600">Restuarant : <span className="text-bold text-black text-lg">{name}</span></h1>
-          <h1>Rating : {avgRating}</h1>
-          <h1>Cuisines : {cuisines.join(", ")}</h1>
-          <h1>deliveryTime : {sla.deliveryTime} min</h1>
-          <h1>Estimated Time : {sla.slaString}</h1>
+    <Link to={`/restaurant/${id}`} className="flex justify-center no-underline">
+      <div className="w-[320px] rounded-xl border bg-white p-4 m-1 cursor-pointer">
+        <h2 className="text-lg font-bold text-gray-800 truncate">{name}</h2>
+
+        <div className="flex items-center justify-between mt-2 text-sm text-gray-600">
+          <span className="flex items-center gap-1">
+            ⭐ <span className="font-medium">{avgRating}</span>
+          </span>
+          <span>{sla.deliveryTime} mins</span>
         </div>
+
+        <p className="mt-2 text-sm text-gray-500 line-clamp-2">
+          {cuisines.join(", ")}
+        </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

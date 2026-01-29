@@ -4,6 +4,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Error from "./Components/Error";
 import { lazy,Suspense } from "react";
+import RestaurantMenu from "./Components/ResturantMenu";
 
 const About = lazy(() => import("./pages/About"));
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path : "/contact",
                 element : <Contact/>
+            },
+            {
+                path : "/restaurant/:resId",
+                element : <RestaurantMenu/>
             }
         ]
     }

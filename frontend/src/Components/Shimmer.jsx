@@ -6,10 +6,7 @@ const Shimmer = () => {
       {Array(10)
         .fill("")
         .map((_, index) => (
-          <div
-            key={index}
-            className="w-[200px] p-3 rounded-lg bg-white"
-          >
+          <div key={index} className="w-[200px] p-3 rounded-lg bg-white">
             {/* Image */}
             <div className="h-[120px] w-full rounded-lg bg-gray-300 animate-pulse"></div>
 
