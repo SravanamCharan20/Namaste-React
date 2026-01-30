@@ -16,7 +16,7 @@ const RestaurantCard = ({ resData }) => {
   };
 
   return (
-    <div className="w-[320px] mx-auto m-2 rounded-2xl border bg-white p-4 shadow-sm 
+    <div data-testid="resCard" className="w-[320px] mx-auto m-2 rounded-2xl border bg-white p-4 shadow-sm 
                     hover:shadow-lg transition-shadow duration-300">
 
       {/* Clickable Card Content */}
