@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import userContext from "../utils/userContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   const {loggedInUser} = useContext(userContext);
   return (
@@ -50,6 +53,9 @@ const Header = () => {
           </li>
           <li>
               {loggedInUser}
+          </li>
+          <li>
+            CART - ({cartItems.length}) items
           </li>
         </ul>
       </nav>

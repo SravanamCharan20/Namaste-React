@@ -22,6 +22,9 @@ const RestaurantCard = ({ resData }) => {
           {cuisines.join(", ")}
         </p>
         <h1>{loggedInUser}</h1>
+        <button className="bg-black rounded-lg p-1 text-white">
+          Add +
+        </button>
       </div>
       
     </Link>
