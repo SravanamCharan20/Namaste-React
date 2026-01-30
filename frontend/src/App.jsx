@@ -9,6 +9,7 @@ const App = () => {
   const [username, setUserName] = useState(null);
   return (
     <div>
+      <h1>hello</h1>
       <Provider store={appStore}>
         <userContext.Provider value={{ loggedInUser: username, setUserName }}>
           <Header />
