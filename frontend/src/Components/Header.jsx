@@ -4,14 +4,12 @@ import { useContext } from "react";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-
   const cartItems = useSelector((store) => store.cart.items);
 
-  const {loggedInUser} = useContext(userContext);
+  const { loggedInUser } = useContext(userContext);
   return (
     <header className="border-b bg-white">
       <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        
         {/* Logo / Brand */}
         <div className="text-lg font-semibold">
           <Link to="/">MyApp</Link>
@@ -51,11 +49,9 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
+          <li>{loggedInUser}</li>
           <li>
-              {loggedInUser}
-          </li>
-          <li>
-            CART - ({cartItems.length}) items
+            <Link to="/cart">CART - ({cartItems.length}) items</Link>
           </li>
         </ul>
       </nav>
