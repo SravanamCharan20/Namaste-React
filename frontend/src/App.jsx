@@ -6,9 +6,9 @@ import userContext from "./utils/userContext";
 const App = () => {
   return (
     <div>
-      <userContext.Provider value={{loggedInUser : "charan"}}>
-      <Header />
-      <Outlet />
+      <userContext.Provider value={{ loggedInUser: "charan" }}>
+        <Header />
+        <Outlet />
       </userContext.Provider>
     </div>
   );
