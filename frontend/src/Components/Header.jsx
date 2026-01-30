@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import userContext from "../utils/userContext";
+import { useContext } from "react";
 
 const Header = () => {
+
+  const {loggedInUser} = useContext(userContext);
   return (
     <header className="border-b bg-white">
       <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -43,6 +47,9 @@ const Header = () => {
             >
               Contact
             </NavLink>
+          </li>
+          <li>
+              {loggedInUser}
           </li>
         </ul>
       </nav>
