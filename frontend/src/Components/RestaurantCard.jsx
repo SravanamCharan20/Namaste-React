@@ -5,6 +5,7 @@ import userContext from "../utils/userContext";
 import { addItem } from "../utils/cartSlice";
 
 const RestaurantCard = ({ resData }) => {
+  // console.log(resData);
   const { loggedInUser } = useContext(userContext);
   const { id, name, cuisines, avgRating, sla } = resData;
   const dispatch = useDispatch();
