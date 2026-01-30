@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import userContext from "../utils/userContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
+  const [isLogin, setIsLogin] = useState(false);
 
   const { loggedInUser } = useContext(userContext);
   return (
@@ -53,6 +54,14 @@ const Header = () => {
           <li>
             <Link to="/cart">CART - ({cartItems.length}) items</Link>
           </li>
+          <button
+            onClick={() => {
+              setIsLogin(!isLogin);
+            }}
+            className="text-white bg-black p-2 cursor-pointer rounded-lg"
+          >
+            {isLogin ? "Logout" : "Login"}
+          </button>
         </ul>
       </nav>
     </header>

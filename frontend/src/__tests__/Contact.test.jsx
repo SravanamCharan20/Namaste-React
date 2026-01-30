@@ -1,28 +1,32 @@
 import { render, screen } from "@testing-library/react";
 import Contact from "../pages/Contact";
-import { expect } from "vitest";
+import { describe, expect } from "vitest";
 
-test("testing contact", () => {
-  render(<Contact />);
 
-  const heading = screen.getByRole("heading");
+// test as write as "it"
+describe("all testcases", () => {
+  test("testing contact", () => {
+    render(<Contact />);
 
-  expect(heading).toBeInTheDocument();
-});
+    const heading = screen.getByRole("heading");
 
-test("testing contact", () => {
-  render(<Contact />);
+    expect(heading).toBeInTheDocument();
+  });
 
-  const button = screen.getByText("Submit");
+  it("testing contact", () => {
+    render(<Contact />);
 
-  expect(button).toBeInTheDocument();
-});
+    const button = screen.getByText("Submit");
 
-test("testing contact", () => {
-  render(<Contact />);
+    expect(button).toBeInTheDocument();
+  });
 
-  const AllInputs = screen.getAllByRole("textbox"); // basically this Allinputs is []
-  console.log(AllInputs[0])
+  it("testing contact", () => {
+    render(<Contact />);
 
-  expect(AllInputs.length).toBe(2);
+    const AllInputs = screen.getAllByRole("textbox"); // basically this Allinputs is []
+    // console.log(AllInputs[0]);
+
+    expect(AllInputs.length).toBe(2);
+  });
 });
