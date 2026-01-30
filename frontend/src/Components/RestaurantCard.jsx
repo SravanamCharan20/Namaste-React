@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import userContext from "../utils/userContext";
+import { useContext } from "react";
 
 const RestaurantCard = ({ resData }) => {
+  const {loggedInUser} = useContext(userContext);
   const { id, name, cuisines, avgRating, sla } = resData;
 
   return (
@@ -18,7 +21,9 @@ const RestaurantCard = ({ resData }) => {
         <p className="mt-2 text-sm text-gray-500 line-clamp-2">
           {cuisines.join(", ")}
         </p>
+        <h1>{loggedInUser}</h1>
       </div>
+      
     </Link>
   );
 };
