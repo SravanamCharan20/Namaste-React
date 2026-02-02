@@ -21,7 +21,7 @@ const RestaurantCard = ({ resData }) => {
 
       {/* Clickable Card Content */}
       <Link to={`/restaurant/${id}`} className="text-left block">
-        <h2 className="text-lg font-semibold text-gray-700 truncate">
+        <h2 className="text-lg font-semibold text-gray-800 truncate">
           {name}
         </h2>
 
