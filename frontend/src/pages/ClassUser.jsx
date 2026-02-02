@@ -4,7 +4,7 @@ class ClassUser extends React.Component {
   constructor(props) {
     super(props); // mandatory
 
-    // all the state variables wriiten in this constructor under one object
+    // all the state variables wriiten in this constructor under one object˜
     this.state = {
       count: 1,
       count2: 100, // if multiple states are there we can write like this
