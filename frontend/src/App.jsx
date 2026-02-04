@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router";
 import Header from "./Components/Header";
-import userContext from "./utils/userContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 
